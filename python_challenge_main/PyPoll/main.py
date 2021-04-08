@@ -1,58 +1,48 @@
 import os
 import csv
-
-filename="election_data.csv"
-dir_path=os.path.dirname(os.path.realpath(__file__))
-#print(dir_path)
+dir_path = os.path.dirname(os.path.realpath(__file__))
+print(dir_path)
 os.chdir(dir_path)
-pypoll_path = os.path.join(dir_path, 'resources')
-print(pypoll_path)
-#print(type(pypoll_path))
-os.chdir(pypoll_path)
-
-voter_id=[]
-county=[]
+csvpath = os.path.join('Resources','election_data.csv')
 candidate=[]
 different_candidates=[]
-
-with open(filename, 'r') as election:
-   csvreader=csv.reader(election, delimiter=',')
-   next(election)
-   for row in csvreader:
-        voter_id.append(row[0])
-        county.append(row[1])
-        candidate.append(row[2])
-        votes=len(voter_id)
-        #print(candidate)
-        #find unique candidate names
+khanvotes=0
+correyvotes =0
+livotes = 0
+otooleyvotes = 0
+with open(csvpath, 'r',encoding="utf8") as election:
+        
+        csvreader=csv.reader(election, delimiter=',')
+   
+        next(election)
+        
+        for row in csvreader:
+                candidate.append(row[2])
+        
+        for i in candidate:     
+                if i not in different_candidates:
+                        different_candidates.append(i)     
         for x in candidate:
-                if x not in different_candidates:
-                        different_candidates.append(x)
-                        #print(different_candidates)
-        khanvotes=0
-        correyvotes=0
-        livotes=0
-        otooleyvotes=0
-        #print(different_candidates)
-        for y in candidate:
-                if candidate== "Khan":
+                if x == "Khan":
                         khanvotes = (khanvotes +1)
-                elif candidate=="Correy":
-                        correyvotes=(correyvotes +1)
-                elif candidate=="Li":
+                elif x=="Correy":
+                      correyvotes=(correyvotes +1)
+                elif x=="Li":
                         livotes=(livotes +1)                        
-                elif candidate=="O'Tooley":
+                elif x == "O'Tooley":
                         otooleyvotes=(otooleyvotes +1)
-                        
+votes=len(voter_id)
+khanpercent=(votes/khanvotes)*100
+correypercent=(votes/correyvotes)*100
+lipercent=(votes/livotes)*100
+otooleypercent=(votes/otooleyvotes)*100
+print("Total votes:" + (str(votes)))
+print("Khan: " +(str(khanvotes) + (str(khanpercent) + "% of the votes"))
+print("Correy: " +(str(correyvotes)+ (str(correypercent) + "% of the votes"))
+print("Li: " +(str(livotes)+ (str(lipercent) + "% of the votes"))
+print("O'Tooley: " +(str(otooleyvotes)+ (str(otooleypercent) + "% of the votes"))
+print("The Winner is Khan")
+#print(candidate)
 
-        print(khanvotes)
-        print(correyvotes)
-        print(livotes)
-        print(otooleyvotes)
-                
-                
-                
-                
 
 
-#print("Total votes:" + (str(votes)))
