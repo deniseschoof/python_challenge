@@ -22,13 +22,11 @@ with open(filename, 'r') as budget:
       print(row)
       #print(row[0])
       net_profit = sum(profit_loss)
-      number_of_months=len(month)
-      average_change=((max(profit_loss)-(min(profit_loss))/number_of_months)
-          
-#print(min(profit_loss))
-#print(max(profit_loss))
-      
+      number_of_months = len(month)
+      max_profit = max(profit_loss)
+      min_profit = min(profit_loss)
+      average_change = (max_profit - min_profit) / number_of_months
+           
 print("Net profit is $" + (str(net_profit)))
 print("Months:" + (str(number_of_months)))
-print("The average change is $" + (str(average_change))
-
+print("The average change is $" + (str(average_change)))
