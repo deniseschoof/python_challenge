@@ -33,16 +33,16 @@ with open(csvpath, 'r',encoding="utf8") as election:
                         livotes=(livotes +1)                        
                 elif x == "O'Tooley":
                         otooleyvotes=(otooleyvotes +1)
-votes=len(voter_id)
-khanpercent=(votes/khanvotes)*100
-correypercent=(votes/correyvotes)*100
-lipercent=(votes/livotes)*100
-otooleypercent=(votes/otooleyvotes)*100
+votes = len(voter_id)
+khanpercent = (khanvotes / votes)*100
+correypercent = (correyvotes / votes)*100
+lipercent = (livotes / votes)*100
+otooleypercent = (otooleyvotes / votes)*100
 print("Total votes:" + (str(votes)))
-print("Khan: " + (str(khanpercent) + "% of the votes  ")+(str(khanvotes)))
-print("Correy: " + str(correyvotes) + str(correypercent) + "% of the votes")
-print("Li: " +(str(livotes)+ (str(lipercent) + "% of the votes")))
-print("O'Tooley: " +(str(otooleyvotes)+ (str(otooleypercent) + "% of the votes")))
+print("Khan: " + str(khanpercent) + "% of the votes  " + str(khanvotes))
+print("Correy: " + str(correypercent) + "% of the votes  " + str(correyvotes) )
+print("Li: " + str(lipercent) + "% of the votes  " + str(livotes))
+print("O'Tooley: " + str(otooleypercent) + "% of the votes " + str(otooleyvotes))
 print("The Winner is TODO")
 
 
