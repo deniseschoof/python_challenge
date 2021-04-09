@@ -39,11 +39,20 @@ correypercent = (correyvotes / votes)*100
 lipercent = (livotes / votes)*100
 otooleypercent = (otooleyvotes / votes)*100
 print("Total votes:" + (str(votes)))
-print("Khan: " + str(khanpercent) + "% of the votes  " + str(khanvotes))
-print("Correy: " + str(correypercent) + "% of the votes  " + str(correyvotes) )
-print("Li: " + str(lipercent) + "% of the votes  " + str(livotes))
-print("O'Tooley: " + str(otooleypercent) + "% of the votes " + str(otooleyvotes))
-print("The Winner is TODO")
+
+print("Khan: " + str(khanpercent) + "% of the votes  :" + str(khanvotes))
+print("Correy: " + str(correypercent) + "% of the votes  :" + str(correyvotes) )
+print("Li: " + str(lipercent) + "% of the votes  :" + str(livotes))
+print("O'Tooley: " + str(otooleypercent) + "% of the votes  :" + str(otooleyvotes))
+
+if khanvotes > correyvotes and livotes and otooleyvotes:
+        print ("Khan is the winner!")
+elif correyvotes > khanvotes and livotes and otooleyvotes:
+        print ("Correy is the winner!")
+elif livotes > khanvotes and correyvotes and otooleyvotes:
+        print ("Li is the winner!")
+elif otooleyvotes > khanvotes and livotes and correyvotes:
+        print ("O'Tooley is the winner!")
 
 
 
